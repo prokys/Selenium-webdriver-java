@@ -23,9 +23,21 @@ public class BaseTests {
         System.out.println(driver.getTitle());
         driver.quit();
     }
+    public void chapter3Exercise(){
+        driver = new ChromeDriver();
+        driver.get("https://the-internet.herokuapp.com/");
+        WebElement shiftingContent = driver.findElement(new By.ByLinkText("Shifting Content"));
+        shiftingContent.click();
+        WebElement example1 = driver.findElement(new By.ByLinkText("Example 1: Menu Element"));
+        example1.click();
+        List<WebElement> listOfElements = driver.findElements(By.tagName("li"));
+        System.out.println(listOfElements.size());
+        driver.quit();
+
+    }
     public static void main(String args[]){
         BaseTests test = new BaseTests();
-        test.setUp();
+        test.chapter3Exercise();
     }
 }
 
