@@ -17,7 +17,7 @@ public class BaseTests {
         List<WebElement> links = driver.findElements(By.tagName("a"));
         System.out.println(links.size());
 
-        WebElement inputsLink = driver.findElement(new By.ByLinkText("Inputs"));
+        WebElement inputsLink = driver.findElement(By.linkText("Inputs"));
         inputsLink.click();
 
         System.out.println(driver.getTitle());
@@ -26,9 +26,9 @@ public class BaseTests {
     public void chapter3Exercise(){
         driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/");
-        WebElement shiftingContent = driver.findElement(new By.ByLinkText("Shifting Content"));
+        WebElement shiftingContent = driver.findElement(By.linkText("Shifting Content"));
         shiftingContent.click();
-        WebElement example1 = driver.findElement(new By.ByLinkText("Example 1: Menu Element"));
+        WebElement example1 = driver.findElement(By.linkText("Example 1: Menu Element"));
         example1.click();
         List<WebElement> listOfElements = driver.findElements(By.tagName("li"));
         System.out.println(listOfElements.size());
