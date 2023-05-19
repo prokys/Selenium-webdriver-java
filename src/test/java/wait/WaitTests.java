@@ -11,4 +11,10 @@ public class WaitTests extends BaseTests {
         loadingPage.clickStart();
         Assert.assertEquals(loadingPage.returnLoadedTest(), "Hello World!", "Loaded text incorrect");
     }
+    @Test
+    public void testUntilVisible() throws InterruptedException{
+        var dynamicLoadingPage = homePage.clickDynamicLoading().clickExample2();
+        dynamicLoadingPage.clickStartButton();
+        Assert.assertEquals(dynamicLoadingPage.getHelloWorldText(),"Hello World!", "Loaded text incorrect" );
+    }
 }
