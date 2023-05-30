@@ -8,9 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
 import utils.WindowManager;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 public class BaseTests {
     private WebDriver driver;
     protected HomePage homePage;
@@ -31,7 +28,7 @@ public class BaseTests {
         driver.quit();
     }
 
-    public WindowManager getWindowMaganger(){
+    public WindowManager getWindowManager(){
         return new WindowManager(driver);
     }
 //    public void chapter3Exercise(){

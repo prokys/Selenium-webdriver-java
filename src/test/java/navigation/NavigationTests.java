@@ -7,14 +7,14 @@ public class NavigationTests extends BaseTests {
     @Test
     public void testNavigator(){
         homePage.clickDynamicLoading().clickExample1();
-        getWindowMaganger().goBack();
-        getWindowMaganger().refreshPage();
-        getWindowMaganger().goForward();
-        getWindowMaganger().goTo("https://google.com");
+        getWindowManager().goBack();
+        getWindowManager().refreshPage();
+        getWindowManager().goForward();
+        getWindowManager().goTo("https://google.com");
     }
     @Test
     public void testSwitchTab(){
         homePage.clickMultipleWindows().clickHere();
-        getWindowMaganger().switchToTab("New Window");
+        getWindowManager().switchToTab("New Window");
     }
 }
