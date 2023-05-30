@@ -1,10 +1,12 @@
 package base;
 
 import com.google.common.io.Files;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -23,11 +25,11 @@ public class BaseTests {
     protected HomePage homePage;
     @BeforeClass
     public void setUp(){
-        driver = new EventFiringWebDriver(new ChromeDriver());
+        driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         goHome();
-
+        setCookie();
     }
     @BeforeMethod
     public void goHome(){
@@ -55,6 +57,17 @@ public class BaseTests {
 
     public WindowManager getWindowManager(){
         return new WindowManager(driver);
+    }
+    private ChromeOptions getChromeOptions(){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("disable-infobars");
+//        options.setHeadless(true);
+
+        return options;
+    }
+    private void setCookie(){
+        Cookie cookie = new Cookie.Builder("tau", "123").domain("http://the-internet.herokuapp.com").build();
+        driver.manage().addCookie(cookie);
     }
 //    public void chapter3Exercise(){
 //        driver = new ChromeDriver();
