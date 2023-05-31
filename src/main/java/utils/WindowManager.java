@@ -39,4 +39,16 @@ public class WindowManager {
             }
         }
     }
+    public void switchToNewTab(){
+        var currentWindow = driver.getWindowHandle();
+        var windows = driver.getWindowHandles();
+        for (String window : windows){
+            if (currentWindow.equals(window)){
+
+            }else {
+                driver.switchTo().window(window);
+                break;
+            }
+        }
+    }
 }

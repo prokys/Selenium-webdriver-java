@@ -29,7 +29,7 @@ public class BaseTests {
         driver.register(new EventReporter());
         //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         goHome();
-        setCookie();
+//        setCookie();
     }
     @BeforeMethod
     public void goHome(){
@@ -65,9 +65,9 @@ public class BaseTests {
 
         return options;
     }
-    private void setCookie(){
-        Cookie cookie = new Cookie.Builder("tau", "123").domain("http://the-internet.herokuapp.com").build();
-        driver.manage().addCookie(cookie);
+//    private void setCookie(){
+//        Cookie cookie = new Cookie.Builder("tau", "123").domain("http://the-internet.herokuapp.com").build();
+//        driver.manage().addCookie(cookie);
     }
 //    public void chapter3Exercise(){
 //        driver = new ChromeDriver();
@@ -80,5 +80,5 @@ public class BaseTests {
 //        System.out.println(listOfElements.size());
 //        driver.quit();
 //    }
-}
+//}
 
